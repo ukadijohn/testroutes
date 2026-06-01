@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1A3A5C;
+  --secondary: #8B5E3C;
+  --accent: #C4914F;
+  --cream: #FAF6F1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF6F1;
+  color: #1A3A5C;
+  font-family: var(--font-poppins), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom cursor */
+* {
+  cursor: none;
+}
+
+a, button, [role="button"] {
+  cursor: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A3A5C;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: #1A3A5C;
+  color: #FAF6F1;
+}
+
+/* Pill button base */
+.btn-pill {
+  border-radius: 9999px;
+  padding: 0.875rem 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-poppins), sans-serif;
+  letter-spacing: -0.01em;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Angled cut button */
+.btn-angled {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+  padding-right: 2rem;
+}
+
+/* Section dividers */
+.wave-divider {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Coloured drop shadows */
+.shadow-navy {
+  box-shadow: 8px 8px 0px #1A3A5C;
+}
+.shadow-brown {
+  box-shadow: 8px 8px 0px #8B5E3C;
+}
+.shadow-accent {
+  box-shadow: 8px 8px 0px #C4914F;
+}
+
+/* Tight heading tracking */
+.heading-display {
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+/* Scanline texture for locked cards */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.05) 2px,
+    rgba(0, 0, 0, 0.05) 4px
+  );
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+  .clip-diagonal-r {
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
