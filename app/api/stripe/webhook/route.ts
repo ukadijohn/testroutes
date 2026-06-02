@@ -50,8 +50,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Webhook handling failed' }, { status: 500 });
   }
 }
-    return NextResponse.json({ received: true });
-  } catch {
-    return NextResponse.json({ error: 'Webhook handling failed' }, { status: 500 });
-  }
-}
