@@ -3,9 +3,7 @@ import Stripe from 'stripe';
 function getStripe() {
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key) throw new Error('STRIPE_SECRET_KEY is missing');
-  return new Stripe(key, {
-    apiVersion: '2025-05-28.basil',
-  });
+  return new Stripe(key, { apiVersion: '2025-05-28.basil' as any });
 }
 
 export const PLAN_PRICE_ID = process.env.STRIPE_PRICE_ID ?? '';
@@ -32,12 +30,4 @@ export async function createBillingPortalSession(stripeCustomerId: string) {
     customer: stripeCustomerId,
     return_url: `${process.env.NEXTAUTH_URL}/dashboard`,
   });
-}
-
-export async function createBillingPortalSession(stripeCustomerId: string) {
-  const session = await stripe.billingPortal.sessions.create({
-    customer: stripeCustomerId,
-    return_url: `${process.env.NEXTAUTH_URL}/dashboard`,
-  })
-  return session
 }
